@@ -9,7 +9,21 @@
 </head>
 <body class="page">
     <header class="header"></header>
-    <main class="container"></main>
+    <main class="login container">
+        <section class="login__section">
+            <p>Sign In</p>
+            <form action="" class="login__form" method="post">
+                <input class="login__field" type="text" placeholder="Username" autofocus autocomplete="off" required name="username"/>
+                <input class="login__field" type="password" placeholder="Password" required name="txtpassword" />
+                <input class="login__field" type="submit" name="login" value="Sign In" class="login__btn" />
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox"> Remember Me
+                    </label>
+                </div>                                    
+            <form>
+        </section>
+    </main>
     <footer class="footer"></footer>
 </body>
 </html>
