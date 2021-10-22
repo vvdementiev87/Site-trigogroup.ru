@@ -5,25 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/c45754f219.js" crossorigin="anonymous"></script>
     <title>Login</title>
 </head>
 <body class="page">
-    <header class="header"></header>
-    <main class="login container">
-        <section class="login__section">
+    <header class="header">
+        <div class="container header__wrap">
+            <div class="header__left">
+                <a href="#"><img class="header__logo" src="images/sticker_vk_spotty_040.png" alt="LOGO"></a>
+            </div>
+            <div class="header__right">
+                <a href="#" class="header__item">
+                    <i class="fas fa-radiation"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="login">
+        <section class="login__section container">
             <p>Sign In</p>
             <form action="" class="login__form" method="post">
                 <input class="login__field" type="text" placeholder="Username" autofocus autocomplete="off" required name="username"/>
                 <input class="login__field" type="password" placeholder="Password" required name="txtpassword" />
-                <input class="login__field" type="submit" name="login" value="Sign In" class="login__btn" />
-                <div class="remember-forgot">
-                    <label>
-                        <input type="checkbox"> Remember Me
-                    </label>
-                </div>                                    
+                <input class="login__btn" type="submit" name="login" value="Sign In" />
             <form>
         </section>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <section class="container footer__wrap">
+            <div class="footer__left">
+                <p>© 2021 Vasek property.</p>
+            </div>
+            <div class="footer__right">
+                <a href="#" class="footer__item">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="footer__item">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="footer__item">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="#" class="footer__item">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>
