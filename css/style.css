@@ -7,6 +7,7 @@
 }
 
 .page {
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17,6 +18,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background: linear-gradient(45deg, rgba(207, 207, 207, 0.5), rgba(79, 79, 79, 0.8)), url(../images/sticker_vk_littleevil_045.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .header {
@@ -59,12 +64,7 @@
 }
 
 .login {
-  background: linear-gradient(45deg, rgba(207, 207, 207, 0.5), rgba(79, 79, 79, 0.8)), url(../images/sticker_vk_littleevil_045.png);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
-  height: 85vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
