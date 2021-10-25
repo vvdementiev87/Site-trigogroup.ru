@@ -88,43 +88,6 @@
         }
     }
 }
-.mainmenu{
-    &__top{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 25px;
-        color:#FFFFFF;
-    }
-    &__wrap{
-        padding: 10px;
-        min-width: 300px;
-        box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 30%);
-        & h2{
-            font-size: 25px;
-            color:#FFFFFF;
-            padding: 10px 0;
-        }                
-    }
-    &__item{
-        display: block;
-        padding: 10px 0;
-        
-        font-size: 20px;
-        list-style: none;
-        & a{
-            color:#FFFFFF;
-            text-decoration: none;
-        }
-        &:hover{
-            background-color: #fcf8c6;
-            & a{
-                color:#000000;
-            }
-            
-        }
-    }
-}
 .footer{
     padding: 20px 10px;
     background-color: #000;

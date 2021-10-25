@@ -93,40 +93,6 @@
   background-color: #535353;
 }
 
-.mainmenu__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 25px;
-  color: #FFFFFF;
-}
-.mainmenu__wrap {
-  padding: 10px;
-  min-width: 300px;
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
-}
-.mainmenu__wrap h2 {
-  font-size: 25px;
-  color: #FFFFFF;
-  padding: 10px 0;
-}
-.mainmenu__item {
-  display: block;
-  padding: 10px 0;
-  font-size: 20px;
-  list-style: none;
-}
-.mainmenu__item a {
-  color: #FFFFFF;
-  text-decoration: none;
-}
-.mainmenu__item:hover {
-  background-color: #fcf8c6;
-}
-.mainmenu__item:hover a {
-  color: #000000;
-}
-
 .footer {
   padding: 20px 10px;
   background-color: #000;
@@ -162,4 +128,4 @@
   /* animation */
   color: #FFFFFF;
   background-color: #535353;
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=login.css.map */
