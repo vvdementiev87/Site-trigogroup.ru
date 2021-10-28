@@ -20,7 +20,30 @@ if(empty($_SESSION['user_name'])){
 
 <body class="page">
     <div class="page__wrap">
+        <div id="logout" class="modal__logout" role="dialog">
+            <div class="modal__body">
+                    <div class="modal__header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Logout</h4>
+                        </div>
+                    <div class="modal__main">
+                        <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
+                    <div class="alert alert-danger">Are you Sure you want to logout
+                        <strong>
+                            <?php echo $_SESSION['user_name']; ?>?
+                        </strong>
+                    </div>
+                    <div class="modal__footer">
+                        <a href="logout.php">
+                            <button type="button" class="btn btn-danger">YES </button>
+                        </a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                </div>                   
+            </div>
+        </div>
         <header class="header">
+            
             <div class="container header__wrap">
                 <div class="header__left">
                     <a href="#"><img class="header__logo" src="images/sticker_vk_spotty_040.png" alt="LOGO"></a>
