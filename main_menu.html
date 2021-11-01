@@ -19,31 +19,71 @@ if(empty($_SESSION['user_name'])){
 </head>
 
 <body class="page">
+
     <div class="page__wrap">
-        <div id="logout" class="modal__logout" role="dialog">
-            <div class="modal__body">
+        <div id="logout" class="modal__logout nav-1 close" role="dialog">
+            <div class="modal__logout__wrap">
+                <div class="modal__body">
                     <div class="modal__header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Logout</h4>
-                        </div>
+                        <h4 class="modal__text">Logout</h4>
+                        <button class="modal__text modal__text--btn btn-3">&times;</button>
+                    </div>
                     <div class="modal__main">
                         <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-                    <div class="alert alert-danger">Are you Sure you want to logout
-                        <strong>
-                            <?php echo $_SESSION['user_name']; ?>?
-                        </strong>
+                        <h5 class="modal__text">Are you Sure you want to logout
+                            <strong>
+                                <?php echo $_SESSION['user_name']; ?>?
+                            </strong>
+                        </h5>
                     </div>
                     <div class="modal__footer">
                         <a href="logout.php">
-                            <button type="button" class="btn btn-danger">YES </button>
+                            <button class="modal__btn--accept">YES </button>
                         </a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button class="modal__btn--close btn-2">NO</button>
                     </div>
-                </div>                   
+                </div>
+            </div>
+        </div>
+        <div id="changepass" class="modal__changepass nav-2 close" role="dialog">
+            <div class="modal__changepass__wrap">
+                <div class="modal__body">
+                    <form action="" class="modal__main__form" method="post">
+                        <div class="modal__header">
+                            <h4 class="modal__text">Change Password</h4>
+                            <button class="modal__text modal__text--btn btn-5">&times;</button>
+                        </div>
+                        <div class="modal__main">
+                            <div class="form-group">
+                                <label class="modal__text" for="name">Current:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="current_password" required
+                                        placeholder="Current Password" autofocus autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="modal__text" for="name">New:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="new_password" required
+                                        placeholder="New Password" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="modal__text" for="name">Repeat:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="repeat_password" required
+                                        placeholder="Repeat Password" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <button type="submit" class="modal__btn--accept" name="change_pass">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <header class="header">
-            
             <div class="container header__wrap">
                 <div class="header__left">
                     <a href="#"><img class="header__logo" src="images/sticker_vk_spotty_040.png" alt="LOGO"></a>
@@ -51,12 +91,14 @@ if(empty($_SESSION['user_name'])){
                 <div class="header__right">
                     <div class="header__dropdown">
                         <details>
-                            <summary class="header__btn"><?php echo $session_username . " ($session_role)"; ?></summary>
+                            <summary class="header__btn">
+                                <?php echo $session_username . " ($session_role)"; ?>
+                            </summary>
                             <ul class="header__dropdown__menu">
-                                <li><a class="header__link" href="#logout"> Logout</a></li>
-                                <li><a class="header__link" href="#changepass"> Change Password</a></li>
+                                <li><a class="header__link btn-1" href="#logout"> Logout</a></li>
+                                <li><a class="header__link btn-4" href="#changepass"> Change Password</a></li>
                             </ul>
-                        </details>                        
+                        </details>
                     </div>
                 </div>
             </div>
@@ -82,6 +124,12 @@ if(empty($_SESSION['user_name'])){
                     <li class="mainmenu__item"><a href="#">Visualization</a></li>
                 </ul>
             </div>
+            <div class="mainmenu__weeknumber">
+                <h2>
+                    Номен недели:
+                    <?php echo 'W'.date('W').'/Y'.date('Y'); ?>
+                </h2>
+            </div>
         </main>
         <footer class="footer">
             <section class="container footer__wrap">
@@ -105,6 +153,7 @@ if(empty($_SESSION['user_name'])){
             </section>
         </footer>
     </div>
+    <script src="JS/buttonClick.js"></script>
 </body>
 
 </html>
