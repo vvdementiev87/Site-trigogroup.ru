@@ -112,12 +112,10 @@ if(empty($_SESSION['user_name'])){
                     <i class="fas fa-th-large"></i>
                 </div>
                 <ul>
-                    <li><a href="message.php"> Message (
-                            <?php echo $result2[0]; ?>)
+                    <li class='mainmenu__item'><a href="message.php"> Message (<?php echo $result2[0]; ?>)
                         </a></li>
                     <?php if ($session_role <1) { echo "<li class='mainmenu__item'><a href='inventory.php'>Inventory</a></li>" ;}?>
-                    <li><a href="missions.php">Mission list</a></li>
-
+                    <li class='mainmenu__item'><a href="missions.php">Mission list</a></li>
                     <?php if ($session_role <2) { echo "<li class='mainmenu__item'><a href='references.php'>References</a></li>";}?>
                     <?php if ($session_role <4) { echo "<li class='mainmenu__item'><a href='PJI.php'>PJI</a></li>";}?>
                     <?php if ($session_role <4) { echo "<li class='mainmenu__item'><a href='version.php'>Mission version</a></li>";}?>
@@ -132,10 +130,8 @@ if(empty($_SESSION['user_name'])){
                 </ul>
             </div>
             <div class="mainmenu__weeknumber">
-                <h2>
-                    Номен недели:
-                    <?php echo 'W'.date('W').'/Y'.date('Y'); ?>
-                </h2>
+                <h2>Номен недели:</h2>
+                <h2><?php echo 'W'.date('W').'/Y'.date('Y'); ?></h2>
             </div>
         </main>
         <footer class="footer">

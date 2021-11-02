@@ -244,10 +244,18 @@
   text-decoration: none;
 }
 .mainmenu__item:hover {
+  transition: all 1s;
   background-color: #fcf8c6;
 }
 .mainmenu__item:hover a {
   color: #000000;
+}
+.mainmenu__weeknumber h2 {
+  display: block;
+  padding: 10px 5px;
+  font-size: 30px;
+  line-height: 19px;
+  color: #FFFFFF;
 }
 
 .footer {

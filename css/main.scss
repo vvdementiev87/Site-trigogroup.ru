@@ -242,13 +242,23 @@
         & a{
             color:#FFFFFF;
             text-decoration: none;
+            
         }
         &:hover{
+            transition: all 1s;
             background-color: #fcf8c6;
             & a{
                 color:#000000;
             }
-            
+        }
+    }
+    &__weeknumber{
+        & h2{
+            display: block;
+            padding: 10px 5px;
+            font-size: 30px;
+            line-height: 19px;
+            color:#FFFFFF; 
         }
     }
 }
