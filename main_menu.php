@@ -28,7 +28,7 @@ if(empty($_SESSION['user_name'])){
                 <div class="modal__body">
                     <div class="modal__header">
                         <h4 class="modal__text">Logout</h4>
-                        <button class="modal__text modal__text--btn btn-3">&times;</button>
+                        <button class="modal__text modal__text--btn btn-1">&times;</button>
                     </div>
                     <div class="modal__main">
                         <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
@@ -42,7 +42,7 @@ if(empty($_SESSION['user_name'])){
                         <a href="logout.php">
                             <button class="modal__btn--accept">YES </button>
                         </a>
-                        <button class="modal__btn--close btn-2">NO</button>
+                        <button class="modal__btn--close btn-1">NO</button>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ if(empty($_SESSION['user_name'])){
                     <form action="" class="modal__main__form" method="post">
                         <div class="modal__header">
                             <h4 class="modal__text">Change Password</h4>
-                            <button class="modal__text modal__text--btn btn-5">&times;</button>
+                            <button class="modal__text modal__text--btn btn-2">&times;</button>
                         </div>
                         <div class="modal__main">
                             <div class="form-group">
@@ -98,7 +98,7 @@ if(empty($_SESSION['user_name'])){
                             </summary>
                             <ul class="header__dropdown__menu">
                                 <li><a class="header__link btn-1" href="#logout"> Logout</a></li>
-                                <li><a class="header__link btn-4" href="#changepass"> Change Password</a></li>
+                                <li><a class="header__link btn-2" href="#changepass"> Change Password</a></li>
                             </ul>
                         </details>
                     </div>
