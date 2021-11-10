@@ -5,29 +5,7 @@ $session_username = $_SESSION['user_name'];
 $session_role = $_SESSION['role'];
 if(empty($_SESSION['user_name'])){
     header("location:login.php");
-}
-                    $sql = "SELECT tbl_missions.mission_id, tbl_missions.mission_cost_center, tbl_missions.mission_number, tbl_missions.mission_start_date, tbl_missions.mission_stop_date, tbl_missions.mission_customer, tbl_missions.mission_resp_engineer, tbl_missions.mission_tqf, tbl_missions.mission_activity, tbl_missions.mission_comment, tbl_missions.mission_status,tbl_missions.mission_monitoring,tbl_missions.mission_audit_frequency, tbl_missions.mission_defect, GROUP_CONCAT(tbl_part.part_number SEPARATOR ',\n') AS partnumber, GROUP_CONCAT(tbl_part.part_name SEPARATOR ',\n') AS partname FROM tbl_missions LEFT JOIN missions_part ON tbl_missions.mission_id = missions_part.mission_id LEFT JOIN tbl_part ON missions_part.part_id=tbl_part.part_id WHERE (tbl_missions.mission_status = 'ongoing' OR tbl_missions.mission_status = 'stopped') GROUP BY tbl_missions.mission_id";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            $mission_id = $row['mission_id'];
-                            $mission_number = $row['mission_number'];
-                            $mission_start_date = $row['mission_start_date'];
-                            $mission_customer = $row['mission_customer'];
-                            $mission_resp_engineer = $row['mission_resp_engineer'];
-                            $mission_tqf = $row['mission_tqf'];
-                            $mission_activity = $row['mission_activity'];
-                            $mission_status = $row['mission_status'];
-                            $mission_defect = $row['mission_defect'];
-                            $mission_monitoring = $row['mission_monitoring'];
-                            $mission_audit_frequency = $row['mission_audit_frequency'];
-                            $mission_part=$data = str_replace("\n", "<br/>", $row ['partnumber']);
-                            $mission_part_name=$data = str_replace("\n", "<br/>", $row ['partname']);
-                            $mission_comment = $row['mission_comment'];
-                            $mission_cost_center = $row['mission_cost_center'];
-                            $mission_stop_date = $row['mission_stop_date'];
-                   
+}                  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -167,6 +145,30 @@ if(empty($_SESSION['user_name'])){
                         <th></th>
                     </tr>
                 </tfoot>
+                <tbody>
+                <?php   
+                $sql = "SELECT tbl_missions.mission_id, tbl_missions.mission_cost_center, tbl_missions.mission_number, tbl_missions.mission_start_date, tbl_missions.mission_stop_date, tbl_missions.mission_customer, tbl_missions.mission_resp_engineer, tbl_missions.mission_tqf, tbl_missions.mission_activity, tbl_missions.mission_comment, tbl_missions.mission_status,tbl_missions.mission_monitoring,tbl_missions.mission_audit_frequency, tbl_missions.mission_defect, GROUP_CONCAT(tbl_part.part_number SEPARATOR ',\n') AS partnumber, GROUP_CONCAT(tbl_part.part_name SEPARATOR ',\n') AS partname FROM tbl_missions LEFT JOIN missions_part ON tbl_missions.mission_id = missions_part.mission_id LEFT JOIN tbl_part ON missions_part.part_id=tbl_part.part_id WHERE (tbl_missions.mission_status = 'ongoing' OR tbl_missions.mission_status = 'stopped') GROUP BY tbl_missions.mission_id";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            $mission_id = $row['mission_id'];
+                            $mission_number = $row['mission_number'];
+                            $mission_start_date = $row['mission_start_date'];
+                            $mission_customer = $row['mission_customer'];
+                            $mission_resp_engineer = $row['mission_resp_engineer'];
+                            $mission_tqf = $row['mission_tqf'];
+                            $mission_activity = $row['mission_activity'];
+                            $mission_status = $row['mission_status'];
+                            $mission_defect = $row['mission_defect'];
+                            $mission_monitoring = $row['mission_monitoring'];
+                            $mission_audit_frequency = $row['mission_audit_frequency'];
+                            $mission_part=$data = str_replace("\n", "<br/>", $row ['partnumber']);
+                            $mission_part_name=$data = str_replace("\n", "<br/>", $row ['partname']);
+                            $mission_comment = $row['mission_comment'];
+                            $mission_cost_center = $row['mission_cost_center'];
+                            $mission_stop_date = $row['mission_stop_date'];
+ ?>
                 <tr>
                     <td>
                         <?php echo $mission_number; ?>
@@ -206,6 +208,10 @@ if(empty($_SESSION['user_name'])){
                         <?php if ($session_role <2) { echo "<a href='#edit".$mission_id."' data-toggle='modal'>
                             <button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>
                         </a>";} ?>
+                    </td>
+                    <?php
+                        }}?>    
+                    </tbody>
             </table>
         </main>
         <footer class="footer">

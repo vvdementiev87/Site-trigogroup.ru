@@ -1,23 +1,15 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans' , sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 .page__wrap {
   min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: space-between;
+  flex-direction: column;
   background: linear-gradient(45deg, rgba(207, 207, 207, 0.5), rgba(79, 79, 79, 0.8)), url(../images/homer_001.png);
   background-size: contain;
   background-position: center;
@@ -28,31 +20,20 @@
   padding: 5px 10px;
   background-color: #000;
 }
-
 .header__wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .header__logo {
   width: 50px;
   height: auto;
 }
-
 .header__item {
   color: #FFFFFF;
   font-size: 32px;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .header__item:hover {
   /* animation */
   color: #fbff00;
@@ -65,25 +46,16 @@
 
 .login {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
-
 .login__section {
   margin: 0 auto;
   padding: 20px;
   border: 2px solid #FFFFFF;
   border-radius: 20px;
 }
-
 .login__section p {
   padding: 5px;
   text-align: center;
@@ -94,20 +66,11 @@
   text-transform: uppercase;
   letter-spacing: 4px;
 }
-
 .login__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
 .login__field {
   background-color: #000000;
   border: 2px solid #FFFFFF;
@@ -117,7 +80,6 @@
   padding: 5px;
   color: #FFFFFF;
 }
-
 .login__btn {
   background-color: #000000;
   border: 2px solid #FFFFFF;
@@ -127,7 +89,6 @@
   padding: 5px;
   color: #FFFFFF;
 }
-
 .login__btn:hover {
   background-color: #535353;
 }
@@ -136,19 +97,11 @@
   padding: 20px 10px;
   background-color: #000;
 }
-
 .footer__wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .footer__left p {
   font-style: normal;
   font-weight: normal;
@@ -156,7 +109,6 @@
   line-height: 19px;
   color: #FBFBFB;
 }
-
 .footer__item {
   display: inline-block;
   text-align: center;
@@ -167,17 +119,13 @@
   height: 32px;
   color: #000000;
   background-color: #FFFFFF;
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-
 .footer__item:not(:last-child) {
   margin-right: 7px;
 }
-
 .footer__item:hover {
   /* animation */
   color: #FFFFFF;
   background-color: #535353;
-}
-/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=login.css.map */

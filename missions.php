@@ -67,39 +67,7 @@ if(empty($_SESSION['user_name'])){
 
         </div>
 
-        <div id="changepass" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <form action="" method="post">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Change Password</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">Current:</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="current_password" required placeholder="Current Password" autofocus autocomplete="off"> </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">New:</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="new_password" required placeholder="New Password" autocomplete="off"> </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-2" for="name">Repeat:</label>
-                                <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="repeat_password" required placeholder="Repeat Password" autocomplete="off"> </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary" name="change_pass">Update</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
 
         <?php
         $sql = "SELECT tbl_data.data_name FROM tbl_data WHERE tbl_data.data_type='mission_tqf' ";
@@ -482,34 +450,7 @@ if(empty($_SESSION['user_name'])){
                         }}
 
 
-                        if(isset($_POST['change_pass'])){
-                            $sql = "SELECT password FROM tbl_user WHERE username='$session_username'";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    if($row['password'] != $current_password){
-                                        echo "<script>window.alert('Invalid Password');</script>";
-                                        $passwordErr = '<div class="alert alert-warning"><strong>Password!</strong> Invalid.</div>';
-                                    } elseif($new_password != $repeat_password) {
-                                        echo "<script>window.alert('Password Not Match!');</script>";
-                                        $passwordErr = '<div class="alert alert-warning"><strong>Password!</strong> Not Match.</div>';
-                                    } else{
-                                        $sql = "UPDATE tbl_user SET password='$new_password' WHERE username='$session_username'";
-
-                                        if ($conn->query($sql) === TRUE) {
-                                            echo "<script>window.alert('Password Successfully Updated');</script>";
-                                        } else {
-                                            echo "Error updating record: " . $conn->error;
-                                        }
-                                    }    
-                                }
-                            } else {
-                                $usernameErr = '<div class="alert alert-danger"><strong>Username</strong> Not Found.</div>';
-                                $username = "";
-                            }
-                        }
+                        
 
 
 
@@ -740,32 +681,7 @@ if(empty($_SESSION['user_name'])){
         </div>
     </div>
 
-    <!--Logout Modal -->
-    <div id="logout" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Logout</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
-                    <div class="alert alert-danger">Are you Sure you want to logout
-                        <strong>
-                            <?php echo $_SESSION['user_name']; ?>?
-                        </strong>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="logout.php">
-                            <button type="button" class="btn btn-danger">YES </button>
-                        </a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
 </body>
 
 </html>
