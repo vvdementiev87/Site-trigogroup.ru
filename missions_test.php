@@ -108,110 +108,9 @@ if(empty($_SESSION['user_name'])){
             </div>
         </header>
         <main class="mainmenu container">
-            <table class="mainmenu__table">
-                <thead>
-                    <tr>
-                        <th>Mission number</th>
-                        <th>Customer</th>
-                        <th>Responsible engineer</th>
-                        <th>TQF engineer</th>
-                        <th>Acivity type</th>
-                        <th>Part number</th>
-                        <th>Part name</th>
-                        <th>Defect</th>
-                        <th>Status</th>
-                        <th>Comment</th>
-                        <th>Cost center</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Mission number</th>
-                        <th>Customer</th>
-                        <th>Responsible engineer</th>
-                        <th>TQF engineer</th>
-                        <th>Acivity type</th>
-                        <th>Part number</th>
-                        <th>Part name</th>
-                        <th>Defect</th>
-                        <th>Status</th>
-                        <th>Comment</th>
-                        <th>Cost center</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                <?php   
-                $sql = "SELECT tbl_missions.mission_id, tbl_missions.mission_cost_center, tbl_missions.mission_number, tbl_missions.mission_start_date, tbl_missions.mission_stop_date, tbl_missions.mission_customer, tbl_missions.mission_resp_engineer, tbl_missions.mission_tqf, tbl_missions.mission_activity, tbl_missions.mission_comment, tbl_missions.mission_status,tbl_missions.mission_monitoring,tbl_missions.mission_audit_frequency, tbl_missions.mission_defect, GROUP_CONCAT(tbl_part.part_number SEPARATOR ',\n') AS partnumber, GROUP_CONCAT(tbl_part.part_name SEPARATOR ',\n') AS partname FROM tbl_missions LEFT JOIN missions_part ON tbl_missions.mission_id = missions_part.mission_id LEFT JOIN tbl_part ON missions_part.part_id=tbl_part.part_id WHERE (tbl_missions.mission_status = 'ongoing' OR tbl_missions.mission_status = 'stopped') GROUP BY tbl_missions.mission_id";
-                    $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            $mission_id = $row['mission_id'];
-                            $mission_number = $row['mission_number'];
-                            $mission_start_date = $row['mission_start_date'];
-                            $mission_customer = $row['mission_customer'];
-                            $mission_resp_engineer = $row['mission_resp_engineer'];
-                            $mission_tqf = $row['mission_tqf'];
-                            $mission_activity = $row['mission_activity'];
-                            $mission_status = $row['mission_status'];
-                            $mission_defect = $row['mission_defect'];
-                            $mission_monitoring = $row['mission_monitoring'];
-                            $mission_audit_frequency = $row['mission_audit_frequency'];
-                            $mission_part=$data = str_replace("\n", "<br/>", $row ['partnumber']);
-                            $mission_part_name=$data = str_replace("\n", "<br/>", $row ['partname']);
-                            $mission_comment = $row['mission_comment'];
-                            $mission_cost_center = $row['mission_cost_center'];
-                            $mission_stop_date = $row['mission_stop_date'];
- ?>
-                <tr>
-                    <td>
-                        <?php echo $mission_number; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_customer; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_resp_engineer; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_tqf; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_activity; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_part; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_part_name; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_defect; ?>
-                    </td>
-                    <td
-                        class="<?php if ($mission_status=='Stopped') echo 'warning'; if ($mission_status== 'Closed') echo 'danger';  if ($mission_status=='Ongoing') echo 'success'; ?>">
-                        <?php echo $mission_status; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_comment; ?>
-                    </td>
-                    <td>
-                        <?php echo $mission_cost_center; ?>
-                    </td>
-                    <td>
-                        <?php if ($session_role <2) { echo "<a href='#edit".$mission_id."' data-toggle='modal'>
-                            <button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>
-                        </a>";} ?>
-                    </td>
-                    <?php
-                        }}?>    
-                    </tbody>
+            <table class="mainmenu__table" id='excelDataTable'>
+                
+                
             </table>
         </main>
         <footer class="footer">
@@ -236,6 +135,58 @@ if(empty($_SESSION['user_name'])){
             </section>
         </footer>
         <script src="JS/buttonClick.js"></script>
+        <?php   
+                $sql = "SELECT tbl_missions.mission_id, tbl_missions.mission_cost_center, tbl_missions.mission_number, tbl_missions.mission_start_date, tbl_missions.mission_stop_date, tbl_missions.mission_customer, tbl_missions.mission_resp_engineer, tbl_missions.mission_tqf, tbl_missions.mission_activity, tbl_missions.mission_comment, tbl_missions.mission_status,tbl_missions.mission_monitoring,tbl_missions.mission_audit_frequency, tbl_missions.mission_defect, GROUP_CONCAT(tbl_part.part_number SEPARATOR ',\n') AS partnumber, GROUP_CONCAT(tbl_part.part_name SEPARATOR ',\n') AS partname FROM tbl_missions LEFT JOIN missions_part ON tbl_missions.mission_id = missions_part.mission_id LEFT JOIN tbl_part ON missions_part.part_id=tbl_part.part_id WHERE (tbl_missions.mission_status = 'ongoing' OR tbl_missions.mission_status = 'stopped') GROUP BY tbl_missions.mission_id";
+                $rows_array = array();    
+                $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            $rows_array[] = $row;
+
+                        }}
+ ?>
+ <script>
+   let objElm = <?php echo json_encode($rows_array); ?>;  
+    console.log(objElm);
+    console.log(objElm[0]);
+    let keyArr=[];
+    for (let key in objElm[0]){
+        keyArr.push(key);
+    }
+    let tbody=document.createElement("tbody");
+    let row_head$=document.createElement("thead");
+    row_head$.insertAdjacentElement('beforeend',document.createElement("tr"));
+    for (let colIndex = 0; colIndex < keyArr.length; colIndex++){
+        let col$ = document.createElement("th");
+        let cellValue = keyArr[colIndex]; 
+        if (cellValue == null) cellValue = "";
+            col$.textContent=cellValue;
+            row_head$.insertAdjacentElement('beforeend',col$);
+    }
+
+    for (let i = 0; i < objElm.length; i++){
+        let row$=document.createElement("tr");
+        let elm=objElm[i];
+        
+            for (let colIndex = 0; colIndex < keyArr.length; colIndex++) {
+            let col$ = document.createElement("td");
+            let indexEl=keyArr[colIndex];
+            let cellValue = elm[indexEl];                      
+            if (cellValue == null) cellValue = "";
+            col$.textContent=cellValue;
+            row$.insertAdjacentElement('beforeend',col$);
+            
+        }
+        tbody.insertAdjacentElement('beforeend',row$);
+        console.log(tbody);     
+    }
+    let tableEl=document.getElementById('excelDataTable');
+    console.log(tableEl);
+    tableEl.insertAdjacentElement('beforeend',row_head$);
+    tableEl.insertAdjacentElement('beforeend',tbody);
+
+ </script>
     </div>
 </body>
 
