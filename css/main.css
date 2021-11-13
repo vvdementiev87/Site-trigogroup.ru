@@ -262,8 +262,30 @@
   line-height: 19px;
   color: #FFFFFF;
 }
+.mainmenu--table {
+  padding: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .mainmenu__table {
   width: 100%;
+  border: 1px solid #535353;
+  border-collapse: collapse;
+}
+.mainmenu__table th {
+  padding: 5px;
+  color: #FFFFFF;
+  border: 1px solid #535353;
+  font-size: 16px;
+}
+.mainmenu__table td {
+  padding: 5px;
+  color: #535353;
+  border: 1px solid #535353;
+  font-size: 14px;
 }
 
 .footer {

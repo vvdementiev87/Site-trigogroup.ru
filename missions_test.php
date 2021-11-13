@@ -107,10 +107,8 @@ if(empty($_SESSION['user_name'])){
                 </div>
             </div>
         </header>
-        <main class="mainmenu container">
-            <table class="mainmenu__table" id='excelDataTable'>
-                
-                
+        <main class="mainmenu--table">
+            <table class="mainmenu__table" id='excelDataTable'>           
             </table>
         </main>
         <footer class="footer">
@@ -136,7 +134,26 @@ if(empty($_SESSION['user_name'])){
         </footer>
         <script src="JS/buttonClick.js"></script>
         <?php   
-                $sql = "SELECT tbl_missions.mission_id, tbl_missions.mission_cost_center, tbl_missions.mission_number, tbl_missions.mission_start_date, tbl_missions.mission_stop_date, tbl_missions.mission_customer, tbl_missions.mission_resp_engineer, tbl_missions.mission_tqf, tbl_missions.mission_activity, tbl_missions.mission_comment, tbl_missions.mission_status,tbl_missions.mission_monitoring,tbl_missions.mission_audit_frequency, tbl_missions.mission_defect, GROUP_CONCAT(tbl_part.part_number SEPARATOR ',\n') AS partnumber, GROUP_CONCAT(tbl_part.part_name SEPARATOR ',\n') AS partname FROM tbl_missions LEFT JOIN missions_part ON tbl_missions.mission_id = missions_part.mission_id LEFT JOIN tbl_part ON missions_part.part_id=tbl_part.part_id WHERE (tbl_missions.mission_status = 'ongoing' OR tbl_missions.mission_status = 'stopped') GROUP BY tbl_missions.mission_id";
+                $sql = "SELECT tbl_missions.mission_id,
+                tbl_missions.mission_cost_center,
+                tbl_missions.mission_number,
+                tbl_missions.mission_start_date,
+                tbl_missions.mission_stop_date,
+                tbl_missions.mission_customer,
+                tbl_missions.mission_resp_engineer,
+                tbl_missions.mission_tqf,
+                tbl_missions.mission_activity,
+                tbl_missions.mission_comment,
+                tbl_missions.mission_status,
+                tbl_missions.mission_monitoring,
+                tbl_missions.mission_audit_frequency,
+                tbl_missions.mission_defect,
+                GROUP_CONCAT(tbl_part.part_number SEPARATOR ',\n') AS partnumber,
+                GROUP_CONCAT(tbl_part.part_name SEPARATOR ',\n') AS partname
+                FROM tbl_missions LEFT JOIN missions_part ON tbl_missions.mission_id = missions_part.mission_id
+                LEFT JOIN tbl_part ON missions_part.part_id=tbl_part.part_id
+                WHERE (tbl_missions.mission_status = 'ongoing' OR tbl_missions.mission_status = 'stopped')
+                GROUP BY tbl_missions.mission_id";
                 $rows_array = array();    
                 $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
@@ -154,12 +171,67 @@ if(empty($_SESSION['user_name'])){
     for (let key in objElm[0]){
         keyArr.push(key);
     }
+    let inputData=[/* {
+        name:'mission_id',
+        text:'ID'
+    }, */{
+        name:'mission_cost_center',
+        text:'Центр затрат'
+    },{
+        name:'mission_number',
+        text:'Номер заказа'
+    },{
+        name:'mission_start_date',
+        text:'Дата начала'
+    },{
+        name:'mission_stop_date',
+        text:'Дата окончания'
+    },{
+        name:'mission_customer',
+        text:'Наименовани заказчика'
+    },{
+        name:'mission_resp_engineer',
+        text:'Ответственный TRIGO'
+    },{
+        name:'mission_tqf',
+        text:'Ответственный RENAULT'
+    },{
+        name:'mission_activity',
+        text:'Тип активности'
+    },{
+        name:'mission_comment',
+        text:'Комментарии'
+    },{
+        name:'mission_status',
+        text:'Статус'
+    },/* {
+        name:'mission_monitoring',
+        text:'Мониторинг'
+    }, *//* {
+        name:'mission_audit_frequency',
+        text:'Частота аудитов'
+    }, */{
+        name:'mission_defect',
+        text:'Дефект'
+    },{
+        name:'partnumber',
+        text:'Референс'
+    },{
+        name:'partname',
+        text:'Наименование детали'
+    }];
+    console.log(keyArr.length);
+    console.log(inputData.length);
+    
+
+    console.log(keyArr);
     let tbody=document.createElement("tbody");
     let row_head$=document.createElement("thead");
     row_head$.insertAdjacentElement('beforeend',document.createElement("tr"));
-    for (let colIndex = 0; colIndex < keyArr.length; colIndex++){
+    for (let colIndex = 0; colIndex < inputData.length; colIndex++){
         let col$ = document.createElement("th");
-        let cellValue = keyArr[colIndex]; 
+        let cellValue = inputData[colIndex].text;
+
         if (cellValue == null) cellValue = "";
             col$.textContent=cellValue;
             row_head$.insertAdjacentElement('beforeend',col$);
@@ -169,20 +241,18 @@ if(empty($_SESSION['user_name'])){
         let row$=document.createElement("tr");
         let elm=objElm[i];
         
-            for (let colIndex = 0; colIndex < keyArr.length; colIndex++) {
+            for (let colIndex = 0; colIndex < inputData.length; colIndex++) {
             let col$ = document.createElement("td");
-            let indexEl=keyArr[colIndex];
+            let indexEl=inputData[colIndex].name;
             let cellValue = elm[indexEl];                      
             if (cellValue == null) cellValue = "";
             col$.textContent=cellValue;
             row$.insertAdjacentElement('beforeend',col$);
             
         }
-        tbody.insertAdjacentElement('beforeend',row$);
-        console.log(tbody);     
+        tbody.insertAdjacentElement('beforeend',row$);    
     }
     let tableEl=document.getElementById('excelDataTable');
-    console.log(tableEl);
     tableEl.insertAdjacentElement('beforeend',row_head$);
     tableEl.insertAdjacentElement('beforeend',tbody);
 
