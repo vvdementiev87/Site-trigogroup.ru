@@ -126,7 +126,18 @@ if(empty($_SESSION['user_name'])){
                     <?php if ($session_role <3) { echo "<li class='mainmenu__item'><a href='data.php'>Data</a></li>";}?>
                     <?php if ($session_role <1) { echo " <li class='mainmenu__item'><a href='input.php'>Input</a></li>"; }?>
                     <?php if ($session_role <1) { echo " <li class='mainmenu__item'><a href='register.php'>Register</a></li>"; }?>
-                    <li class='mainmenu__item'><a href="visualization.php">Visualization</a></li>
+                    <li class='mainmenu__item'>
+                    <div class="header__dropdown"><details>
+                                <summary class="header__btn mainmenu__item">
+                                    Visualization
+                                </summary>
+                                <ul class="header__dropdown__menu">
+                                    <li><a class="header__link" href="graph.php">График загрузки инженеров</a></li>
+                                    <li><a class="header__link" href="graph1.php">Статистика по ЦЗ</a></li>
+                                    <li><a class="header__link" href="graph2.php">График загрузки по ЦЗ</a></li>
+                                </ul>
+                            </details></div>
+                        </li>
                 </ul>
             </div>
             <div class="mainmenu__weeknumber">

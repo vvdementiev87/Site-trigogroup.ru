@@ -26,7 +26,7 @@ if(empty($_SESSION['user_name'])){
                 <div class="modal__body">
                     <div class="modal__header">
                         <h4 class="modal__text">Logout</h4>
-                        <button class="modal__text modal__text--btn btn-3">&times;</button>
+                        <button class="modal__text modal__text--btn btn-1">&times;</button>
                     </div>
                     <div class="modal__main">
                         <input type="hidden" name="delete_id" value="<?php echo $id; ?>">
@@ -40,7 +40,7 @@ if(empty($_SESSION['user_name'])){
                         <a href="logout.php">
                             <button class="modal__btn--accept">YES </button>
                         </a>
-                        <button class="modal__btn--close btn-2">NO</button>
+                        <button class="modal__btn--close btn-1">NO</button>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ if(empty($_SESSION['user_name'])){
                     <form action="" class="modal__main__form" method="post">
                         <div class="modal__header">
                             <h4 class="modal__text">Change Password</h4>
-                            <button class="modal__text modal__text--btn btn-5">&times;</button>
+                            <button class="modal__text modal__text--btn btn-2">&times;</button>
                         </div>
                         <div class="modal__main">
                             <div class="form-group">
@@ -77,7 +77,45 @@ if(empty($_SESSION['user_name'])){
                             </div>
                         </div>
                         <div class="modal__footer">
-                            <button type="submit" class="modal__btn--accept" name="change_pass">Update</button>
+                            <button type="submit" class="modal__btn--accept btn-2" name="change_pass">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="missionchange" class="modal__missionchange nav-3 close" role="dialog">
+            <div class="modal__changepass__wrap">
+                <div class="modal__body">
+                    <form action="" class="modal__main__form" method="post">
+                        <div class="modal__header">
+                            <h4 class="modal__text">Change Password</h4>
+                            <button class="modal__text modal__text--btn btn-3">&times;</button>
+                        </div>
+                        <div class="modal__main">
+                            <div class="form-group">
+                                <label class="modal__text" for="name">Current:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="current_password" required
+                                        placeholder="Current Password" autofocus autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="modal__text" for="name">New:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="new_password" required
+                                        placeholder="New Password" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="modal__text" for="name">Repeat:</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="repeat_password" required
+                                        placeholder="Repeat Password" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <button type="submit" class="modal__btn--accept btn-3" name="change_pass">Update</button>
                         </div>
                     </form>
                 </div>
@@ -132,7 +170,7 @@ if(empty($_SESSION['user_name'])){
                 </div>
             </section>
         </footer>
-        <script src="JS/buttonClick.js"></script>
+        
         <?php   
                 $sql = "SELECT tbl_missions.mission_id,
                 tbl_missions.mission_cost_center,
@@ -239,11 +277,15 @@ if(empty($_SESSION['user_name'])){
 
     for (let i = 0; i < objElm.length; i++){
         let row$=document.createElement("tr");
+        ;
         let elm=objElm[i];
         
             for (let colIndex = 0; colIndex < inputData.length; colIndex++) {
             let col$ = document.createElement("td");
             let indexEl=inputData[colIndex].name;
+            if (inputData[colIndex].name==='mission_number'){
+                col$.classList.add('btn-3');
+            };
             let cellValue = elm[indexEl];                      
             if (cellValue == null) cellValue = "";
             col$.textContent=cellValue;
@@ -258,6 +300,7 @@ if(empty($_SESSION['user_name'])){
 
  </script>
     </div>
+    <script src="JS/buttonClick.js"></script>
 </body>
 
 </html>
