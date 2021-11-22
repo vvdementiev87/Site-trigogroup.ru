@@ -121,17 +121,17 @@ if(empty($_SESSION['user_name'])){
                     <?php if ($session_role <4) { echo "<li class='mainmenu__item'><a href='version.php'>Mission version</a></li>";}?>
                     <?php if ($session_role <4 or $session_role ==9) { echo " <li class='mainmenu__item'><a href='remark.php'>Remark</a></li>"; }?>
                     <?php if ($session_role <4 or $session_role ==9) { echo " <li class='mainmenu__item'><a href='consumption.php'>Consumption</a></li>"; }?>
-                    <?php if ($session_role <3) { echo "<li class='mainmenu__item'><a href='employee.php'>Employee</a></li>";}?>
+                    <?php if ($session_role <4) { echo "<li class='mainmenu__item'><a href='employee.php'>Employee</a></li>";}?>
                     <?php if ($session_role <4) { echo "<li class='mainmenu__item'><a href='excel_load.php'>EXCEL</a></li>";}?>
                     <?php if ($session_role <3) { echo "<li class='mainmenu__item'><a href='data.php'>Data</a></li>";}?>
                     <?php if ($session_role <1) { echo " <li class='mainmenu__item'><a href='input.php'>Input</a></li>"; }?>
                     <?php if ($session_role <1) { echo " <li class='mainmenu__item'><a href='register.php'>Register</a></li>"; }?>
                     <li class='mainmenu__item'>
                     <div class="header__dropdown"><details>
-                                <summary class="header__btn mainmenu__item">
+                                <summary class="header__btn header__btn--main">
                                     Visualization
                                 </summary>
-                                <ul class="header__dropdown__menu">
+                                <ul class="header__dropdown__menu--main">
                                     <li><a class="header__link" href="graph.php">График загрузки инженеров</a></li>
                                     <li><a class="header__link" href="graph1.php">Статистика по ЦЗ</a></li>
                                     <li><a class="header__link" href="graph2.php">График загрузки по ЦЗ</a></li>

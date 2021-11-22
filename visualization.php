@@ -16,7 +16,7 @@ if(empty($_SESSION['user_name'])){
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css"
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
 

@@ -148,6 +148,10 @@
   font-size: 14px;
   color: #FFFFFF;
 }
+.header__btn--main {
+  font-size: 20px;
+  list-style: none;
+}
 .header__dropdown {
   position: relative;
 }
@@ -155,6 +159,14 @@
   position: absolute;
   top: 30px;
   left: 0px;
+  padding: 10px;
+  list-style: none;
+  background-color: #FFFFFF;
+}
+.header__dropdown__menu--main {
+  top: -30px;
+  right: -24px;
+  position: absolute;
   padding: 10px;
   list-style: none;
   background-color: #FFFFFF;

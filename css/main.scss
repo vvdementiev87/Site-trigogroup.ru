@@ -152,6 +152,10 @@
         border: none;
         font-size: 14px;
         color: #FFFFFF;
+        &--main {
+            font-size: 20px;
+            list-style: none;
+        }
     }
     &__dropdown {
         position: relative;
@@ -162,6 +166,14 @@
             padding: 10px;
             list-style: none;
             background-color: #FFFFFF;
+            &--main {
+                top: -30px;
+                right: -24px;
+                position: absolute;
+                padding: 10px;
+                list-style: none;
+                background-color: #FFFFFF;
+            }
         }
     }
     &__link {
