@@ -86,13 +86,12 @@
         z-index: 9;
         width: 100%;
         height: 100%;
+        position: fixed;
         background: rgba(79, 79, 79, .8);
-        position: absolute;
+        text-align: center;
         &__wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
+            display: inline-block;
+            vertical-align: middle;
         }
     }
     &__main {
@@ -297,6 +296,7 @@
     &--table {
         padding: 25px;
         width: 100%;
+        max-width: 90vw;
         display: flex;
         flex-direction: column;
         align-items: center;

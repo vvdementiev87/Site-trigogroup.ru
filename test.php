@@ -82,41 +82,42 @@ if(empty($_SESSION['user_name'])){
                 </div>
             </div>
         </div>
-        <div id="missionchange" class="modal__missionchange nav-3 close" role="dialog">
-            <div class="modal__changepass__wrap">
+
+        <div id="missionchange" class="modal__missionchange nav-3 close">
+            <div class="modal__missionchange__wrap">
                 <div class="modal__body">
-                    <form action="" class="modal__main__form" method="post">
+                    <div action="" class="modal__main__form">
                         <div class="modal__header">
                             <h4 class="modal__text">Change Password</h4>
-                            <button class="modal__text modal__text--btn btn-3">&times;</button>
+                            <button class="modal__text modal__text--btn btn-4">&times;</button>
                         </div>
                         <div class="modal__main">
                             <div class="form-group">
                                 <label class="modal__text" for="name">Current:</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="current_password" required
+                                    <input id="nameInput" type="text" class="form-control" name="current_password" 
                                         placeholder="Current Password" autofocus autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="modal__text" for="name">New:</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="new_password" required
+                                    <input type="text" class="form-control" name="new_password" 
                                         placeholder="New Password" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="modal__text" for="name">Repeat:</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="repeat_password" required
+                                    <input type="text" class="form-control" name="repeat_password" 
                                         placeholder="Repeat Password" autocomplete="off">
                                 </div>
                             </div>
                         </div>
                         <div class="modal__footer">
-                            <button type="submit" class="modal__btn--accept btn-3" name="change_pass">Update</button>
+                            <button class="modal__btn--accept btn-4" name="change_pass">Update</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
