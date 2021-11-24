@@ -3,11 +3,11 @@ let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         tableRender(myFunction(JSON.parse(this.response)));
-        modalWindow();
+        modalWindow(myFunction(JSON.parse(this.response)));
     }
 }
 
-function modalWindow() {
+function modalWindow(data) {
     let button3 = document.querySelectorAll('.btn-3');
     let nav3 = document.querySelector('.nav-3');
     let button4 = document.querySelectorAll('.btn-4');
@@ -19,8 +19,12 @@ function modalWindow() {
     }
     for (let element of button3) {
         element.addEventListener('click', function(event) {
-            let inputId = document.getElementById('nameInput');
+            let inputId = document.getElementById('nameInputId');
             inputId.value = event.target.parentElement.dataset.id
+            let inputMissionNumber = document.getElementById('nameInputMissionNumber');
+            let inputMissionCustomer = document.getElementById('nameInputMissionCustomer');
+            inputMissionNumber.value = data[event.target.parentElement.dataset.id].mission_number;
+            inputMissionCustomer.value = data[event.target.parentElement.dataset.id].mission_customer;
             nav3.classList.toggle('open');
             nav3.classList.toggle('close');
         })

@@ -95,21 +95,21 @@ if(empty($_SESSION['user_name'])){
                             <div class="form-group">
                                 <label class="modal__text" for="name">Current:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameInput" type="text" class="form-control" name="current_password" 
+                                    <input id="nameInputId" type="text" class="form-control" name="current_password" 
                                         placeholder="Current Password" autofocus autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="modal__text" for="name">New:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="new_password" 
+                                    <input id="nameInputMissionNumber" type="text" class="form-control" name="new_password" 
                                         placeholder="New Password" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="modal__text" for="name">Repeat:</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="repeat_password" 
+                                    <input id="nameInputMissionCustomer" type="text" class="form-control" name="repeat_password" 
                                         placeholder="Repeat Password" autocomplete="off">
                                 </div>
                             </div>
