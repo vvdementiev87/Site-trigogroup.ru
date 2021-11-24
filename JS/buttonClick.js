@@ -17,22 +17,8 @@ for (let element of button2) {
     })
 }
 for (let element of button3) {
-    console.log(element);
     element.addEventListener('click', function() {
         nav3.classList.toggle('open');
         nav3.classList.toggle('close');
     })
-}
-let xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myFunction(this.responseText);
-    }
-}
-
-xhttp.open('POST', 'https://trigogroup.ru/login.php', true);
-xhttp.send();
-
-function myFunction(data) {
-    console.log(data);
 }
