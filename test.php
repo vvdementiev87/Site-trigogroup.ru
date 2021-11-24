@@ -161,18 +161,85 @@ if(empty($_SESSION['user_name'])){
 
  <script>
    let xhttp = new XMLHttpRequest();
+   let objElm=[];
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        myFunction(this.responseText);
+        myFunction(JSON.parse(this.response));
     }
 }
 
-xhttp.open('POST', 'https://trigogroup.ru/include/controller.php', true);
+xhttp.open('POST', 'https://trigogroup.ru/include/dbLink.php', false);
 xhttp.send();
 
 function myFunction(data) {
     console.log(data);
+    for (let key of data){
+        objElm.push(key);
+    };
 }
+console.log(objElm);
+    console.log(objElm[0]);
+let keyArr=[];
+    for (let key in objElm[0]){
+        keyArr.push(key);
+    }
+    let inputData=[{
+        name:'data_id',
+        text:'ID'
+    },{
+        name:'data_type',
+        text:'Тип данных'
+    },{
+        name:'data_name',
+        text:'Наименование'
+    },{
+        name:'data_comment',
+        text:'Коментарий'
+    },{
+        name:'data_email',
+        text:'Email'
+    }];
+    console.log(keyArr.length);
+    console.log(inputData.length);
+    
+
+    console.log(keyArr);
+    let tbody=document.createElement("tbody");
+    let row_head$=document.createElement("thead");
+    row_head$.insertAdjacentElement('beforeend',document.createElement("tr"));
+    for (let colIndex = 0; colIndex < inputData.length; colIndex++){
+        let col$ = document.createElement("th");
+        let cellValue = inputData[colIndex].text;
+
+        if (cellValue == null) cellValue = "";
+            col$.textContent=cellValue;
+            row_head$.insertAdjacentElement('beforeend',col$);
+    }
+
+    for (let i = objElm.length-1; i >= 0; i--){
+        let row$=document.createElement("tr");
+        ;
+        let elm=objElm[i];
+        
+            for (let colIndex = 0; colIndex < inputData.length; colIndex++) {
+            let col$ = document.createElement("td");
+            let indexEl=inputData[colIndex].name;
+            if (inputData[colIndex].name==='mission_number'){
+                col$.classList.add('btn-3');
+            };
+            let cellValue = elm[indexEl];                      
+            if (cellValue == null) cellValue = "";
+            col$.textContent=cellValue;
+            row$.insertAdjacentElement('beforeend',col$);
+            
+        }
+        tbody.insertAdjacentElement('beforeend',row$);    
+    }
+    let tableEl=document.getElementById('excelDataTable');
+    tableEl.insertAdjacentElement('beforeend',row_head$);
+    tableEl.insertAdjacentElement('beforeend',tbody);
+
+
     
  </script>
  
