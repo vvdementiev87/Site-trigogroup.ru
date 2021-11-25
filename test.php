@@ -92,112 +92,112 @@ if(empty($_SESSION['user_name'])){
                             <button class="modal__text modal__text--btn btn-4">&times;</button>
                         </div>
                         <div class="modal__main">
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameInputId">ID number:</label>
                                 <div class="col-sm-10">
                                     <input id="nameInputId" type="text" class="form-control"
                                         placeholder="nameInputId">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameInputMissionNumber">Mission number:</label>
                                 <div class="col-sm-10">
                                     <input id="nameInputMissionNumber" type="text" class="form-control"
                                         placeholder="nameInputMissionNumber">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameInputMissionCustomer">Customer name:</label>
                                 <div class="col-sm-10">
                                     <input id="nameInputMissionCustomer" type="text" class="form-control" 
                                         placeholder="nameInputMissionCustomer">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionCostCenter">Cost Center:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionCostCenter" type="text" class="form-control" 
                                         placeholder="nameMissionCostCenter">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionStartDate">Start Date:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionStartDate" type="text" class="form-control" 
                                         placeholder="nameMissionStartDate">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionStopDate">Stop Date:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionStopDate" type="text" class="form-control" 
                                         placeholder="nameMissionStopDate">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionRespEngineer">Responsible:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionRespEngineer" type="text" class="form-control" 
                                         placeholder="nameMissionRespEngineer">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionTqf">Renault responsible:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionTqf" type="text" class="form-control" 
                                         placeholder="nameMissionTqf">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionActivity">Activity type:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionActivity" type="text" class="form-control" 
                                         placeholder="nameMissionActivity">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionComment">Comment:</label>
                                 <div class="col-sm-10">
                                     <textarea id="nameMissionComment" type="text" class="form-control" 
                                         placeholder="nameMissionComment" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionStatus">Status:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionStatus" type="text" class="form-control" 
                                         placeholder="nameMissionStatus">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionMonitoring">Monitoring:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionMonitoring" type="text" class="form-control" 
                                         placeholder="nameMissionMonitoring">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionAuditFrequency">Audit:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionAuditFrequency" type="text" class="form-control" 
                                         placeholder="nameMissionAuditFrequency">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="nameMissionDefect">Defect:</label>
                                 <div class="col-sm-10">
                                     <input id="nameMissionDefect" type="text" class="form-control" 
                                         placeholder="nameMissionDefect">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="namePartNumber">Parts number:</label>
                                 <div class="col-sm-10">
                                     <textarea id="namePartNumber" type="text" class="form-control" 
                                         placeholder="namePartNumber" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form__group">
                                 <label class="modal__text" for="namePartName">Parts name:</label>
                                 <div class="col-sm-10">
                                     <textarea id="namePartName" type="text" class="form-control" 

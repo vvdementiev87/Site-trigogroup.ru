@@ -19,38 +19,39 @@ function modalWindow(data) {
     }
     for (let element of button3) {
         element.addEventListener('click', function(event) {
+            let idNumber=event.target.parentElement.dataset.id;
             let inputId = document.getElementById('nameInputId');
-            inputId.value = event.target.parentElement.dataset.id
+            inputId.value = data[idNumber].mission_id;
             let inputMissionNumber = document.getElementById('nameInputMissionNumber');
-            inputMissionNumber.value = data[event.target.parentElement.dataset.id].mission_number;
+            inputMissionNumber.value = data[idNumber].mission_number;
             let inputMissionCustomer = document.getElementById('nameInputMissionCustomer');            
-            inputMissionCustomer.value = data[event.target.parentElement.dataset.id].mission_customer;
+            inputMissionCustomer.value = data[idNumber].mission_customer;
             let inputMissionCostCenter = document.getElementById('nameMissionCostCenter');            
-            inputMissionCostCenter.value = data[event.target.parentElement.dataset.id].mission_cost_center;
+            inputMissionCostCenter.value = data[idNumber].mission_cost_center;
             let inputMissionStartDate = document.getElementById('nameMissionStartDate');            
-            inputMissionStartDate.value = data[event.target.parentElement.dataset.id].mission_start_date;
+            inputMissionStartDate.value = data[idNumber].mission_start_date;
             let inputMissionStopDate = document.getElementById('nameMissionStopDate');            
-            inputMissionStopDate.value = data[event.target.parentElement.dataset.id].mission_stop_date;
+            inputMissionStopDate.value = data[idNumber].mission_stop_date;
             let inputMissionRespEngineer = document.getElementById('nameMissionRespEngineer');            
-            inputMissionRespEngineer.value = data[event.target.parentElement.dataset.id].mission_resp_engineer;
+            inputMissionRespEngineer.value = data[idNumber].mission_resp_engineer;
             let inputMissionTqf = document.getElementById('nameMissionTqf');            
-            inputMissionTqf.value = data[event.target.parentElement.dataset.id].mission_tqf;
+            inputMissionTqf.value = data[idNumber].mission_tqf;
             let inputMissionActivity = document.getElementById('nameMissionActivity');            
-            inputMissionActivity.value = data[event.target.parentElement.dataset.id].mission_activity;
+            inputMissionActivity.value = data[idNumber].mission_activity;
             let inputMissionComment = document.getElementById('nameMissionComment');            
-            inputMissionComment.value = data[event.target.parentElement.dataset.id].mission_comment;
+            inputMissionComment.value = data[idNumber].mission_comment;
             let inputMissionStatus = document.getElementById('nameMissionStatus');            
-            inputMissionStatus.value = data[event.target.parentElement.dataset.id].mission_status;
+            inputMissionStatus.value = data[idNumber].mission_status;
             let inputMissionMonitoring = document.getElementById('nameMissionMonitoring');            
-            inputMissionMonitoring.value = data[event.target.parentElement.dataset.id].mission_monitoring;
+            inputMissionMonitoring.value = data[idNumber].mission_monitoring;
             let inputMissionAuditFrequency = document.getElementById('nameMissionAuditFrequency');            
-            inputMissionAuditFrequency.value = data[event.target.parentElement.dataset.id].mission_audit_frequency;
+            inputMissionAuditFrequency.value = data[idNumber].mission_audit_frequency;
             let inputMissionDefect = document.getElementById('nameMissionDefect');            
-            inputMissionDefect.value = data[event.target.parentElement.dataset.id].mission_defect;
+            inputMissionDefect.value = data[idNumber].mission_defect;
             let inputPartNumber = document.getElementById('namePartNumber');            
-            inputPartNumber.value = data[event.target.parentElement.dataset.id].partnumber;
+            inputPartNumber.value = data[idNumber].partnumber;
             let inputPartName = document.getElementById('namePartName');            
-            inputPartName.value = data[event.target.parentElement.dataset.id].partname;
+            inputPartName.value = data[idNumber].partname;
             nav3.classList.toggle('open');
             nav3.classList.toggle('close');
         })
@@ -138,7 +139,8 @@ function tableRender(objElm) {
     for (let i = objElm.length - 1; i >= 0; i--) {
         let row$ = document.createElement("tr");
         let elm = objElm[i];
-        row$.dataset.id = elm.mission_id;
+        let rowId=elm.mission_id-1;
+        row$.dataset.id = rowId;
 
         for (let colIndex = 0; colIndex < inputData.length; colIndex++) {
             let col$ = document.createElement("td");
