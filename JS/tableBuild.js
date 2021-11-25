@@ -22,9 +22,35 @@ function modalWindow(data) {
             let inputId = document.getElementById('nameInputId');
             inputId.value = event.target.parentElement.dataset.id
             let inputMissionNumber = document.getElementById('nameInputMissionNumber');
-            let inputMissionCustomer = document.getElementById('nameInputMissionCustomer');
             inputMissionNumber.value = data[event.target.parentElement.dataset.id].mission_number;
+            let inputMissionCustomer = document.getElementById('nameInputMissionCustomer');            
             inputMissionCustomer.value = data[event.target.parentElement.dataset.id].mission_customer;
+            let inputMissionCostCenter = document.getElementById('nameMissionCostCenter');            
+            inputMissionCostCenter.value = data[event.target.parentElement.dataset.id].mission_cost_center;
+            let inputMissionStartDate = document.getElementById('nameMissionStartDate');            
+            inputMissionStartDate.value = data[event.target.parentElement.dataset.id].mission_start_date;
+            let inputMissionStopDate = document.getElementById('nameMissionStopDate');            
+            inputMissionStopDate.value = data[event.target.parentElement.dataset.id].mission_stop_date;
+            let inputMissionRespEngineer = document.getElementById('nameMissionRespEngineer');            
+            inputMissionRespEngineer.value = data[event.target.parentElement.dataset.id].mission_resp_engineer;
+            let inputMissionTqf = document.getElementById('nameMissionTqf');            
+            inputMissionTqf.value = data[event.target.parentElement.dataset.id].mission_tqf;
+            let inputMissionActivity = document.getElementById('nameMissionActivity');            
+            inputMissionActivity.value = data[event.target.parentElement.dataset.id].mission_activity;
+            let inputMissionComment = document.getElementById('nameMissionComment');            
+            inputMissionComment.value = data[event.target.parentElement.dataset.id].mission_comment;
+            let inputMissionStatus = document.getElementById('nameMissionStatus');            
+            inputMissionStatus.value = data[event.target.parentElement.dataset.id].mission_status;
+            let inputMissionMonitoring = document.getElementById('nameMissionMonitoring');            
+            inputMissionMonitoring.value = data[event.target.parentElement.dataset.id].mission_monitoring;
+            let inputMissionAuditFrequency = document.getElementById('nameMissionAuditFrequency');            
+            inputMissionAuditFrequency.value = data[event.target.parentElement.dataset.id].mission_audit_frequency;
+            let inputMissionDefect = document.getElementById('nameMissionDefect');            
+            inputMissionDefect.value = data[event.target.parentElement.dataset.id].mission_defect;
+            let inputPartNumber = document.getElementById('namePartNumber');            
+            inputPartNumber.value = data[event.target.parentElement.dataset.id].partnumber;
+            let inputPartName = document.getElementById('namePartName');            
+            inputPartName.value = data[event.target.parentElement.dataset.id].partname;
             nav3.classList.toggle('open');
             nav3.classList.toggle('close');
         })
