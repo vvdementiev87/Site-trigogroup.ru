@@ -95,118 +95,120 @@ if(empty($_SESSION['user_name'])){
                             <div class="form__group">
                                 <label class="modal__text" for="nameInputId">ID number:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameInputId" type="text" class="form-control"
-                                        placeholder="nameInputId">
+                                    <input id="nameInputId" type="text" class="form__control"
+                                        placeholder="nameInputId" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameInputMissionNumber">Mission number:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameInputMissionNumber" type="text" class="form-control"
-                                        placeholder="nameInputMissionNumber">
+                                    <input id="nameInputMissionNumber" type="text" class="form__control"
+                                        placeholder="nameInputMissionNumber" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameInputMissionCustomer">Customer name:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameInputMissionCustomer" type="text" class="form-control" 
-                                        placeholder="nameInputMissionCustomer">
+                                    <input id="nameInputMissionCustomer" type="text" class="form__control" 
+                                        placeholder="nameInputMissionCustomer" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionCostCenter">Cost Center:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionCostCenter" type="text" class="form-control" 
-                                        placeholder="nameMissionCostCenter">
+                                    <input id="nameMissionCostCenter" type="text" class="form__control" 
+                                        placeholder="nameMissionCostCenter" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionStartDate">Start Date:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionStartDate" type="text" class="form-control" 
-                                        placeholder="nameMissionStartDate">
+                                    <input id="nameMissionStartDate" type="text" class="form__control" 
+                                        placeholder="nameMissionStartDate" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionStopDate">Stop Date:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionStopDate" type="text" class="form-control" 
-                                        placeholder="nameMissionStopDate">
+                                    <input id="nameMissionStopDate" type="text" class="form__control" 
+                                        placeholder="nameMissionStopDate" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionRespEngineer">Responsible:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionRespEngineer" type="text" class="form-control" 
-                                        placeholder="nameMissionRespEngineer">
+                                    <input id="nameMissionRespEngineer" type="text" class="form__control" 
+                                        placeholder="nameMissionRespEngineer" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionTqf">Renault responsible:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionTqf" type="text" class="form-control" 
-                                        placeholder="nameMissionTqf">
+                                    <input id="nameMissionTqf" type="text" class="form__control" 
+                                        placeholder="nameMissionTqf" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionActivity">Activity type:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionActivity" type="text" class="form-control" 
-                                        placeholder="nameMissionActivity">
+                                    <input id="nameMissionActivity" type="text" class="form__control" 
+                                        placeholder="nameMissionActivity" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionComment">Comment:</label>
                                 <div class="col-sm-10">
-                                    <textarea id="nameMissionComment" type="text" class="form-control" 
-                                        placeholder="nameMissionComment" cols="30" rows="10"></textarea>
+                                    <textarea id="nameMissionComment" type="text" class="form__control" 
+                                        placeholder="nameMissionComment" rows="5" readonly></textarea>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionStatus">Status:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionStatus" type="text" class="form-control" 
-                                        placeholder="nameMissionStatus">
+                                    <input id="nameMissionStatus" type="text" class="form__control" 
+                                        placeholder="nameMissionStatus" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionMonitoring">Monitoring:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionMonitoring" type="text" class="form-control" 
-                                        placeholder="nameMissionMonitoring">
+                                    <input id="nameMissionMonitoring" type="text" class="form__control" 
+                                        placeholder="nameMissionMonitoring" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionAuditFrequency">Audit:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionAuditFrequency" type="text" class="form-control" 
-                                        placeholder="nameMissionAuditFrequency">
+                                    <input id="nameMissionAuditFrequency" type="text" class="form__control" 
+                                        placeholder="nameMissionAuditFrequency" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="nameMissionDefect">Defect:</label>
                                 <div class="col-sm-10">
-                                    <input id="nameMissionDefect" type="text" class="form-control" 
-                                        placeholder="nameMissionDefect">
+                                    <input id="nameMissionDefect" type="text" class="form__control" 
+                                        placeholder="nameMissionDefect" readonly>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="namePartNumber">Parts number:</label>
                                 <div class="col-sm-10">
-                                    <textarea id="namePartNumber" type="text" class="form-control" 
-                                        placeholder="namePartNumber" cols="30" rows="10"></textarea>
+                                    <textarea id="namePartNumber" type="text" class="form__control" 
+                                        placeholder="namePartNumber" rows="5" readonly></textarea>
                                 </div>
                             </div>
                             <div class="form__group">
                                 <label class="modal__text" for="namePartName">Parts name:</label>
                                 <div class="col-sm-10">
-                                    <textarea id="namePartName" type="text" class="form-control" 
-                                        placeholder="namePartName" cols="30" rows="10"></textarea>
+                                    <textarea id="namePartName" type="text" class="form__control" 
+                                        placeholder="namePartName" rows="5" readonly></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="modal__footer">
-                            <button class="modal__btn--accept btn-4" name="change_pass">Update</button>
+                            <button class="modal__btn--update btn-update" name="change_pass">Update</button>
+                            <button class="modal__btn--accept btn-accept" name="change_pass">OK</button>
+                            <button class="modal__btn--close btn-4" name="change_pass">Close</button>
                         </div>
                     </div>
                 </div>
