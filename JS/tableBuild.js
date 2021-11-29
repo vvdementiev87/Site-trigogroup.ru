@@ -1,5 +1,5 @@
-function tableInput() {
-    let xhttp = new XMLHttpRequest();
+async function tableInput() {
+    /* let xhttp = new XMLHttpRequest();
     xhttp.open('POST', 'https://trigogroup.ru/include/dbLink.php', true);
     xhttp.send();
     let responseTable = [];
@@ -16,9 +16,19 @@ function tableInput() {
             tableRender(myFunction(JSON.parse(this.response)));
             modalWindow(myFunction(JSON.parse(this.response)));
         }
-    };
+    }; */
+    let response = await fetch('https://trigogroup.ru/include/dbLink.php', {
+        method: 'POST',
+    });
 
-    return responseTable;
+    let result = await response.json();
+    console.log(result);
+    if (result.length == 0) {
+        tableInput();
+    } else {
+        tableRender(myFunction(result));
+        modalWindow(myFunction(result));
+    };
 }
 
 tableInput();
