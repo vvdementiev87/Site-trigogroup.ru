@@ -129,6 +129,30 @@
   padding: 5px 10px;
   background-color: #000;
 }
+.header__search__img {
+  fill: #FFFFFF;
+  background: none;
+  width: 16px;
+  height: 16px;
+  border: none;
+}
+.header__search__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.header__search__field {
+  color: #FFFFFF;
+  border: none;
+  background: none;
+  border-bottom: 2px solid #FFFFFF;
+}
+.header__right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .header__wrap {
   display: flex;
   justify-content: space-between;

@@ -136,6 +136,32 @@
 .header {
     padding: 5px 10px;
     background-color: #000;
+    &__search {
+        &__img {
+            fill: #FFFFFF;
+            background: none;
+            width: 16px;
+            height: 16px;
+            border: none;
+        }
+        &__btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        &__field {
+            color: #FFFFFF;
+            border: none;
+            background: none;
+            border-bottom: 2px solid #FFFFFF;
+        }
+    }
+    &__right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     &__wrap {
         display: flex;
         justify-content: space-between;

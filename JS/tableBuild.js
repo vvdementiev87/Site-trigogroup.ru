@@ -86,6 +86,24 @@ function modalWindow(data) {
 
 
 
+/* document.querySelector('.header__search__form').addEventListener('submit', e => {
+    e.preventDefault();
+    this.filter(document.querySelector('.header__search__field').value)
+})
+
+function filter(value){
+    const regexp = new RegExp(value, 'i');
+    this.filtered = this.allProducts.filter(product => regexp.test(product.product_name));
+    this.allProducts.forEach(el => {
+        const block = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+        if(!this.filtered.includes(el)){
+            block.classList.add('invisible');
+        } else {
+            block.classList.remove('invisible');
+        }
+    })
+} */
+
 function myFunction(data) {
     let objElm = [];
     for (let key of data) {
