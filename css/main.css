@@ -32,10 +32,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.page__wrap--menu {
   background: linear-gradient(45deg, rgba(207, 207, 207, 0.5), rgba(79, 79, 79, 0.8)), url(../images/sticker_vk_littleevil_018.png);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.page__wrap--list {
+  background: linear-gradient(30deg, rgba(241, 241, 241, 0.247), rgba(126, 90, 90, 0.637));
 }
 
 .modal__text {

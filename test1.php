@@ -19,7 +19,7 @@ if(empty($_SESSION['user_name'])){
 </head>
 
 <body>
-    <div class="page__wrap">
+    <div class="page__wrap page__wrap--list">
         <div id="logout" class="modal__logout nav-1 close" role="dialog">
             <div class="modal__logout__wrap">
                 <div class="modal__body">

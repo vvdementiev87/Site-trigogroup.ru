@@ -195,6 +195,7 @@ class TableRender {
             console.log(data);
             this.rows = data;
             this.render();
+            this.modalWindow();
         });
         this.render();
         
@@ -210,7 +211,7 @@ class TableRender {
     filter(value){
         const regexp = new RegExp(value, 'i');
         this.filtered = this.rows.filter(row => {
-            return (regexp.test(row.mission_customer)||regexp.test(row.mission_resp_engineer)||
+            return (regexp.test(row.mission_number)||regexp.test(row.mission_customer)||regexp.test(row.mission_resp_engineer)||
             regexp.test(row.mission_tqf)||regexp.test(row.partnumber)||
             regexp.test(row.partname)||regexp.test(row.mission_defect)||
             regexp.test(row.mission_status)||regexp.test(row.mission_comment)||
@@ -225,6 +226,7 @@ class TableRender {
             }
         })
     }
+    
     render() {
         const block = document.getElementById('excelDataTable');
         let row$ = '';
@@ -238,6 +240,54 @@ class TableRender {
             e.preventDefault();
             this.filter(document.querySelector('.header__search__field').value)
         })
+    }
+    modalWindow() {        
+        let nav3 = document.querySelector('.nav-3');
+        let button4 = document.querySelectorAll('.btn-4');
+        for (let element of button4) {
+            element.addEventListener('click', function() {
+                nav3.classList.toggle('open');
+                nav3.classList.toggle('close');
+            })
+        }
+        for (let element of this.rows) {
+            document.querySelector(`.btn--${element.mission_id}`).addEventListener('click', function(event) {                
+                let inputId = document.getElementById('nameInputId');
+                inputId.value = element.mission_id;
+                let inputMissionNumber = document.getElementById('nameInputMissionNumber');
+                inputMissionNumber.value = element.mission_number;
+                let inputMissionCustomer = document.getElementById('nameInputMissionCustomer');
+                inputMissionCustomer.value = element.mission_customer;
+                let inputMissionCostCenter = document.getElementById('nameMissionCostCenter');
+                inputMissionCostCenter.value = element.mission_cost_center;
+                let inputMissionStartDate = document.getElementById('nameMissionStartDate');
+                inputMissionStartDate.value = element.mission_start_date;
+                let inputMissionStopDate = document.getElementById('nameMissionStopDate');
+                inputMissionStopDate.value = element.mission_stop_date;
+                let inputMissionRespEngineer = document.getElementById('nameMissionRespEngineer');
+                inputMissionRespEngineer.value = element.mission_resp_engineer;
+                let inputMissionTqf = document.getElementById('nameMissionTqf');
+                inputMissionTqf.value = element.mission_tqf;
+                let inputMissionActivity = document.getElementById('nameMissionActivity');
+                inputMissionActivity.value = element.mission_activity;
+                let inputMissionComment = document.getElementById('nameMissionComment');
+                inputMissionComment.value = element.mission_comment;
+                let inputMissionStatus = document.getElementById('nameMissionStatus');
+                inputMissionStatus.value = element.mission_status;
+                let inputMissionMonitoring = document.getElementById('nameMissionMonitoring');
+                inputMissionMonitoring.value = element.mission_monitoring;
+                let inputMissionAuditFrequency = document.getElementById('nameMissionAuditFrequency');
+                inputMissionAuditFrequency.value = element.mission_audit_frequency;
+                let inputMissionDefect = document.getElementById('nameMissionDefect');
+                inputMissionDefect.value = element.mission_defect;
+                let inputPartNumber = document.getElementById('namePartNumber');
+                inputPartNumber.value = element.partnumber;
+                let inputPartName = document.getElementById('namePartName');
+                inputPartName.value = element.partname;
+                nav3.classList.toggle('open');
+                nav3.classList.toggle('close');
+            })
+        }
     }
 
 }
