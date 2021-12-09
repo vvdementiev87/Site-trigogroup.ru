@@ -190,12 +190,14 @@ class TableRender {
     constructor(container = 'excelDataTable') {
         this.container = container;
         this.rows = [];
+        this.filtered = [];
         this._fetchTable().then(data => {
             console.log(data);
             this.rows = data;
             this.render();
         });
         this.render();
+        
     }
     _fetchTable() {
         return fetch('https://trigogroup.ru/include/dbLink.php', {
@@ -204,6 +206,24 @@ class TableRender {
             .catch(error => {
                 console.log(error);
             });
+    }
+    filter(value){
+        const regexp = new RegExp(value, 'i');
+        this.filtered = this.rows.filter(row => {
+            return (regexp.test(row.mission_customer)||regexp.test(row.mission_resp_engineer)||
+            regexp.test(row.mission_tqf)||regexp.test(row.partnumber)||
+            regexp.test(row.partname)||regexp.test(row.mission_defect)||
+            regexp.test(row.mission_status)||regexp.test(row.mission_comment)||
+            regexp.test(row.mission_cost_center));        
+        });
+        this.rows.forEach(el => {
+            const block = document.querySelector(`.table__row[data-id="${el.mission_id}"]`);
+            if(!this.filtered.includes(el)){
+                block.classList.add('invisible');
+            } else {
+                block.classList.remove('invisible');
+            }
+        })
     }
     render() {
         const block = document.getElementById('excelDataTable');
@@ -214,6 +234,10 @@ class TableRender {
 
         }
         block.insertAdjacentHTML('beforeend', row$);
+        document.querySelector('.header__search__form').addEventListener('submit', e => {
+            e.preventDefault();
+            this.filter(document.querySelector('.header__search__field').value)
+        })
     }
 
 }
@@ -240,7 +264,7 @@ class RowRender {
 
     }
     render() {
-        return `<tr data-id=${this.mission_id}>
+        return `<tr class="table__row" data-id=${this.mission_id}>
         <td class="btn--${this.mission_id} btn__main" data-id=${this.mission_id}>${this.mission_number}</td>
         <td>${this.mission_customer}</td>
         <td>${this.mission_resp_engineer}</td>
