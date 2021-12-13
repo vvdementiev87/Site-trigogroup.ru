@@ -141,7 +141,7 @@ if(empty($_SESSION['user_name'])){
                 </ul>
             </div>
             <div class="mainmenu__weeknumber">
-                <h2>Номен недели:</h2>
+                <h2>Порядковый номер недели:</h2>
                 <h2><?php echo 'W'.date('W').'/Y'.date('Y'); ?></h2>
             </div>
         </main>
