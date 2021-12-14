@@ -189,15 +189,47 @@ function tableRender(objElm) {
 class TableRender {
     constructor(container = 'excelDataTable') {
         this.container = container;
+        this.param=true;
         this.rows = [];
         this.filtered = [];
+        this.ordered = [];
+        this.heading = [{
+            name: 'mission_number',
+            text: 'Номер заказа'
+        }, {
+            name: 'mission_customer',
+            text: 'Наименовани заказчика'
+        }, {
+            name: 'mission_resp_engineer',
+            text: 'Ответственный TRIGO'
+        }, {
+            name: 'mission_tqf',
+            text: 'Ответственный RENAULT'
+        }, {
+            name: 'partnumber',
+            text: 'Референс'
+        }, {
+            name: 'partname',
+            text: 'Наименование детали'
+        }, {
+            name: 'mission_defect',
+            text: 'Дефект'
+        }, {
+            name: 'mission_status',
+            text: 'Статус'
+        }, {
+            name: 'mission_comment',
+            text: 'Комментарии'
+        }, {
+            name: 'mission_cost_center',
+            text: 'Центр затрат'
+        }];
         this._fetchTable().then(data => {
             console.log(data);
             this.rows = data;
             this.render();
             this.modalWindow();
         });
-        this.render();
         
     }
     _fetchTable() {
@@ -207,6 +239,50 @@ class TableRender {
             .catch(error => {
                 console.log(error);
             });
+    }
+    order(value,param){
+        const block = document.querySelector('tbody');
+        block.textContent='';
+        let row$ = '';
+        this.ordered=this.rows.sort(function (a, b) {
+            
+            if (param){
+                if (a[value] > b[value]) {
+              return 1;
+            }
+            if (a[value] < b[value]) {
+              return -1;
+            }
+            // a должно быть равным b
+            return 0;
+        }else{
+                if (a[value] < b[value]) {
+                    return 1;
+                  }
+                  if (a[value] > b[value]) {
+                    return -1;
+                  }
+                  // a должно быть равным b
+                  return 0;
+            }
+          });
+        for (let row of this.ordered) {
+            const item = new RowRender(row);
+            row$ += item.render();
+
+        }        
+        block.insertAdjacentHTML('beforeend', row$);
+        document.querySelector('.header__search__form').addEventListener('submit', e => {
+            e.preventDefault();
+            this.filter(document.querySelector('.header__search__field').value)
+        })        
+        if (this.param){
+            this.param=false;
+        }else{
+            this.param=true;
+        }
+    
+
     }
     filter(value){
         const regexp = new RegExp(value, 'i');
@@ -230,25 +306,50 @@ class TableRender {
     render() {
         const block = document.getElementById('excelDataTable');
         let row$ = '';
+        let col$='';
         for (let row of this.rows) {
             const item = new RowRender(row);
             row$ += item.render();
 
+        }
+        for (let colIndex = 0; colIndex < this.heading.length; colIndex++) {
+            col$ = document.createElement("th");
+            let cellValue = this.heading[colIndex].text;
+            if (cellValue == null) cellValue = "";
+            console.log(cellValue);
+            col$.textContent = cellValue;
+            col$.dataset.id=colIndex;
+            block.insertAdjacentElement('beforeend', col$);
+            
         }
         block.insertAdjacentHTML('beforeend', row$);
         document.querySelector('.header__search__form').addEventListener('submit', e => {
             e.preventDefault();
             this.filter(document.querySelector('.header__search__field').value)
         })
+        document.querySelectorAll('th').forEach(element=>{
+            element.addEventListener('click',el=>{
+                console.log(Number(el.target.dataset.id));
+                console.log(this.heading[Number(el.target.dataset.id)].name);
+                console.log(this.param);
+                this.order(this.heading[Number(el.target.dataset.id)].name,this.param);
+                this.modalWindow();
+            })
+        })
+        
     }
     modalWindow() {        
         let nav3 = document.querySelector('.nav-3');
         let button4 = document.querySelectorAll('.btn-4');
-        for (let element of button4) {
-            element.addEventListener('click', function() {
-                nav3.classList.toggle('open');
+        let i=0;
+        let clickToggle=function(event){
                 nav3.classList.toggle('close');
-            })
+                console.log(i++);
+        }
+        for (let element of button4) {
+            element.removeEventListener('click',clickToggle);
+            element.addEventListener('click', clickToggle);
+
         }
         for (let element of this.rows) {
             document.querySelector(`.btn--${element.mission_id}`).addEventListener('click', function(event) {                
@@ -284,7 +385,6 @@ class TableRender {
                 inputPartNumber.value = element.partnumber;
                 let inputPartName = document.getElementById('namePartName');
                 inputPartName.value = element.partname;
-                nav3.classList.toggle('open');
                 nav3.classList.toggle('close');
             })
         }
