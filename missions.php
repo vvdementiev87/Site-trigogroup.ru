@@ -530,7 +530,7 @@ if(empty($_SESSION['user_name'])){
                         mysqli_query($conn, $sql);
                         $mission_id=mysqli_insert_id($conn);
 
-                        $mission_number='RAVTO.21.'.sprintf('%04d', $mission_id-580);
+                        $mission_number='RAVTO.22.'.sprintf('%04d', $mission_id-1204);
                         $sql2 = "INSERT INTO tbl_version (version_letter,version_reason,version_user,version_sorting_speed,version_NOK_speed,version_rework_speed,version_NOK_ratio,version_rework_ratio,mission_id) VALUES ('A','new','$session_username','30','45','60','0.1','0.5','$mission_id')";
                         $conn->query($sql2);
 
